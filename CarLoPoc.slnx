@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MockCarLo/MockCarLo.csproj" />
+  <Project Path="ScriptedClient/ScriptedClient.csproj" />
+  <Project Path="ValidationProxy/ValidationProxy.csproj" />
+</Solution>

@@ -46,7 +46,8 @@ is about the task, not about writes as such.
 
 Run C, no task declared: every call is denied (R8).
 
-`provenance.jsonl` holds one line per call, allowed or denied, with session,
+`sample-run/` holds the output of one complete run (client console, log,
+the one write the mock executed). `provenance.jsonl` holds one line per call, allowed or denied, with session,
 sequence number, declared task, arguments, decision, reason and the untrusted
 sources that had entered the session before the call. The denied write in run A
 carries `"untrusted_sources_before_call":["ReadDocument(DOC-4711)"]`, which is

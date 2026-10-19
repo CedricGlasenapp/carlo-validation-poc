@@ -27,7 +27,7 @@ public sealed class ValidatedTool(
     {
         var name = ProtocolTool.Name;
         var arguments = request.Params?.Arguments;
-        var sourcesBefore = session.UntrustedSources.ToArray();
+        var sourcesBefore = session.UntrustedSources;
         var seq = ++session.CallCounter;
 
         var decision = policy.Decide(session, name, arguments);
@@ -50,7 +50,8 @@ public sealed class ValidatedTool(
         if (PolicyDecisionPoint.ReturnsUntrustedContent(name))
         {
             var id = arguments is not null && arguments.TryGetValue("documentId", out var d) ? d.ToString() : "?";
-            session.UntrustedSources.Add($"{name}({id})");
+            var text = string.Join("\n", result.Content.OfType<TextContentBlock>().Select(c => c.Text));
+            session.UntrustedContent.Add(new($"{name}({id})", text));
         }
 
         log.Append(new(DateTimeOffset.UtcNow, session.SessionId, seq, session.DeclaredTask, name,

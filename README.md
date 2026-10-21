@@ -1,5 +1,15 @@
 # Proof of concept: validation layer on the MCP transport
 
+Companion code to the research design *Security Mechanisms for Agentic AI in
+Enterprise Systems: Prompt Injection and Tool Abuse Mitigation* (Cedric
+Glasenapp, TU Dresden, Chair of Business Information Systems, esp.
+Intelligent Systems and Services, October 2026). The research design
+prepares a diploma thesis with Soloplan GmbH on the transport management
+system CarLo. Everything in this repository is a mock: the server, the
+records, the document and the tool names are invented and contain nothing
+of CarLo. The tag `forschungsdesign-2026-10` marks the state described in
+Section 6.3 of the research design.
+
 Demonstrates feasibility of the mechanism proposed in Section 6.3 of the
 research design: a validation layer between an MCP client and the CarLo MCP
 server that decides on every proposed tool call and logs every call with its
